@@ -16,6 +16,8 @@ namespace EternaFrontToBackWithMvc.DAL
         public DbSet<HeroCarousel> HeroCarousels { get; set; }
         public DbSet<Feature>Features { get; set; }
         public DbSet<About> Abouts { get; set; }
+        public DbSet<Services> Services { get; set; }
+        public DbSet<Client> Clients { get; set; }
 
     }
 }

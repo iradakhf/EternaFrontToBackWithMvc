@@ -14,6 +14,7 @@ namespace EternaFrontToBackWithMvc.Models
         public string SubtitleList1 { get; set; }
         public string SubtitleList2 { get; set; }
         public string SubtitleList3 { get; set; }
+        public string Description { get; set; }
 
     }
 }

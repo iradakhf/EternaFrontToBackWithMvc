@@ -11,6 +11,11 @@ namespace EternaFrontToBackWithMvc.ViewModel
     {
        public List<HeroCarousel> HeroCarousels { get; set; }
         public List<Feature> Features { get; set; }
+        public List<About> Abouts { get; set; }
+        public List<Services> Services { get; set; }
+        public List<Client> Clients { get; set; }
+
+
 
     }
 }

@@ -21,7 +21,11 @@ namespace EternaFrontToBackWithMvc.Controllers
             HomeVM homeVM = new HomeVM
             {
                HeroCarousels = _context.HeroCarousels.ToList(),
-               Features = _context.Features.ToList()
+               Features = _context.Features.ToList(),
+               Abouts = _context.Abouts.ToList(),
+               Services = _context.Services.ToList(),
+                Clients = _context.Clients.ToList()
+
             };
             return View(homeVM);
         }

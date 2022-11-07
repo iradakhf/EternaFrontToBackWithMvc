@@ -10,6 +10,8 @@ namespace EternaFrontToBackWithMvc.Controllers
     {
         public IActionResult Index()
         {
+            ViewBag.Active = 6;
+
             return View();
         }
     }
