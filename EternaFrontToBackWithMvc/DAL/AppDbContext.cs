@@ -20,6 +20,9 @@ namespace EternaFrontToBackWithMvc.DAL
         public DbSet<Client> Clients { get; set; }
         public DbSet<Count> Counts { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
+        public DbSet<OurSkill> OurSkills { get; set; }
+        public DbSet<Skill> Skills { get; set; }
+
 
     }
 }
