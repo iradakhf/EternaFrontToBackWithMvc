@@ -7,6 +7,38 @@
   <ItemGroup>
     <Compile Remove="Migrations\20221107103334_fff.cs" />
     <Compile Remove="Migrations\20221107103334_fff.Designer.cs" />
+    <Compile Remove="Migrations\20221107160408_AddedRelationBetweenPortfolioAndPortfolioImageTables.cs" />
+    <Compile Remove="Migrations\20221107160408_AddedRelationBetweenPortfolioAndPortfolioImageTables.Designer.cs" />
+    <Compile Remove="Migrations\20221107160713_added.cs" />
+    <Compile Remove="Migrations\20221107160713_added.Designer.cs" />
+    <Compile Remove="Migrations\20221107163811_AddedPortfolioImagesAndOurServicesTableRelation.cs" />
+    <Compile Remove="Migrations\20221107163811_AddedPortfolioImagesAndOurServicesTableRelation.Designer.cs" />
+    <Compile Remove="Migrations\20221107164013_AddedPortfolioImagesAndOurServiceTableRelation.cs" />
+    <Compile Remove="Migrations\20221107164013_AddedPortfolioImagesAndOurServiceTableRelation.Designer.cs" />
+    <Compile Remove="Migrations\20221107164215_AddedRelationtoPortfolioImagesAndOurServicesTables.cs" />
+    <Compile Remove="Migrations\20221107164215_AddedRelationtoPortfolioImagesAndOurServicesTables.Designer.cs" />
+    <Compile Remove="Migrations\20221107164932_AddedRelationBetweenPortfolioImagesAndOurServiceTable.cs" />
+    <Compile Remove="Migrations\20221107164932_AddedRelationBetweenPortfolioImagesAndOurServiceTable.Designer.cs" />
+    <Compile Remove="Migrations\20221108072102_CreatedCategoryTable.cs" />
+    <Compile Remove="Migrations\20221108072102_CreatedCategoryTable.Designer.cs" />
+    <Compile Remove="Migrations\20221108072331_CreatedCategoryTable.cs" />
+    <Compile Remove="Migrations\20221108072331_CreatedCategoryTable.Designer.cs" />
+    <Compile Remove="Migrations\20221108072609_AddedRelationBetweenPortfolioAndCategory.cs" />
+    <Compile Remove="Migrations\20221108072609_AddedRelationBetweenPortfolioAndCategory.Designer.cs" />
+    <Compile Remove="Migrations\20221108074658_ff.cs" />
+    <Compile Remove="Migrations\20221108074658_ff.Designer.cs" />
+    <Compile Remove="Migrations\20221108075003_RemovedRelationBetweenOurServiceAndPortfolio.cs" />
+    <Compile Remove="Migrations\20221108075003_RemovedRelationBetweenOurServiceAndPortfolio.Designer.cs" />
+    <Compile Remove="Migrations\20221108084553_20221107170418_AddedRelationBetweenOurServiceAndPortfolioImagesTable.cs.cs" />
+    <Compile Remove="Migrations\20221108084553_20221107170418_AddedRelationBetweenOurServiceAndPortfolioImagesTable.cs.Designer.cs" />
+    <Compile Remove="Migrations\20221108130325_test.cs" />
+    <Compile Remove="Migrations\20221108130325_test.Designer.cs" />
+    <Compile Remove="Migrations\20221108130521_test.cs" />
+    <Compile Remove="Migrations\20221108130521_test.Designer.cs" />
+    <Compile Remove="Migrations\20221108130818_AddedConnectionBetweenPortfolioImageAndGroup.cs" />
+    <Compile Remove="Migrations\20221108130818_AddedConnectionBetweenPortfolioImageAndGroup.Designer.cs" />
+    <Compile Remove="Migrations\20221108131107_AddedConnectionBetweenPortfolioImagesAndGroups.cs" />
+    <Compile Remove="Migrations\20221108131107_AddedConnectionBetweenPortfolioImagesAndGroups.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

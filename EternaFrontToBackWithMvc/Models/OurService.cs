@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace EternaFrontToBackWithMvc.Models
 {
-    public class Services
+    public class OurService
     {
         public int Id { get; set; }
-        public string Icon { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
 
+        public Portfolio Portfolio{ get; set; }
+        public int PortfolioId { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿
+﻿@model List<Contact>
 @{
     ViewData["Title"] = "Index";
 }
@@ -10,7 +10,7 @@
         <div class="container">
 
             <ol>
-                <li><a href="index.html">Home</a></li>
+                <li><a asp-controller="Home">Home</a></li>
                 <li>Contact</li>
             </ol>
             <h2>Contact</h2>
@@ -26,7 +26,11 @@
                     <div class="info-box mb-4">
                         <i class="bx bx-map"></i>
                         <h3>Our Address</h3>
-                        <p>A108 Adam Street, New York, NY 535022</p>
+                        @foreach (Contact item in Model)
+                        {
+                        <p>@item.Address</p>
+
+                        }
                     </div>
                 </div>
 
@@ -34,7 +38,11 @@
                     <div class="info-box  mb-4">
                         <i class="bx bx-envelope"></i>
                         <h3>Email Us</h3>
-                        <p>contact@example.com</p>
+                        @foreach (Contact item in Model)
+                        {
+                            <p>@item.Email</p>
+
+                        }
                     </div>
                 </div>
 
@@ -42,7 +50,11 @@
                     <div class="info-box  mb-4">
                         <i class="bx bx-phone-call"></i>
                         <h3>Call Us</h3>
-                        <p>+1 5589 55488 55</p>
+                        @foreach (Contact item in Model)
+                        {
+                            <p>@item.Phone</p>
+
+                        }
                     </div>
                 </div>
 

@@ -4,14 +4,16 @@ using EternaFrontToBackWithMvc.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EternaFrontToBackWithMvc.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221108110812_RemovedPortfolioImageAndOurServicesRelation")]
+    partial class RemovedPortfolioImageAndOurServicesRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,27 +70,6 @@ namespace EternaFrontToBackWithMvc.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Clients");
-                });
-
-            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.Contact", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Contacts");
                 });
 
             modelBuilder.Entity("EternaFrontToBackWithMvc.Models.Count", b =>
@@ -342,7 +323,7 @@ namespace EternaFrontToBackWithMvc.Migrations
             modelBuilder.Entity("EternaFrontToBackWithMvc.Models.Portfolio", b =>
                 {
                     b.HasOne("EternaFrontToBackWithMvc.Models.Client", "Client")
-                        .WithMany("Portfolios")
+                        .WithMany()
                         .HasForeignKey("ClientId");
 
                     b.HasOne("EternaFrontToBackWithMvc.Models.PortfolioGroup", "PortfolioGroup")

@@ -22,6 +22,11 @@ namespace EternaFrontToBackWithMvc.DAL
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<OurSkill> OurSkills { get; set; }
         public DbSet<Skill> Skills { get; set; }
+        public DbSet<PortfolioImage> PortfolioImages { get; set; }
+        public DbSet<Portfolio> Portfolios { get; set; }
+        public DbSet<OurService> OurServices { get; set; }
+        public DbSet<PortfolioGroup> PortfolioGroups { get; set; }
+        public DbSet <Contact> Contacts{ get; set; }
 
 
     }

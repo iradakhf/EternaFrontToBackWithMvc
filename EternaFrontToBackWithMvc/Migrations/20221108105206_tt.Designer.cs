@@ -4,14 +4,16 @@ using EternaFrontToBackWithMvc.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EternaFrontToBackWithMvc.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221108105206_tt")]
+    partial class tt
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,27 +70,6 @@ namespace EternaFrontToBackWithMvc.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Clients");
-                });
-
-            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.Contact", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Contacts");
                 });
 
             modelBuilder.Entity("EternaFrontToBackWithMvc.Models.Count", b =>
@@ -254,10 +235,20 @@ namespace EternaFrontToBackWithMvc.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("OurServiceId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PortfolioGroupId")
+                        .HasColumnType("int");
+
                     b.Property<int>("PortfolioId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("OurServiceId");
+
+                    b.HasIndex("PortfolioGroupId");
 
                     b.HasIndex("PortfolioId");
 
@@ -342,7 +333,7 @@ namespace EternaFrontToBackWithMvc.Migrations
             modelBuilder.Entity("EternaFrontToBackWithMvc.Models.Portfolio", b =>
                 {
                     b.HasOne("EternaFrontToBackWithMvc.Models.Client", "Client")
-                        .WithMany("Portfolios")
+                        .WithMany()
                         .HasForeignKey("ClientId");
 
                     b.HasOne("EternaFrontToBackWithMvc.Models.PortfolioGroup", "PortfolioGroup")
@@ -354,6 +345,14 @@ namespace EternaFrontToBackWithMvc.Migrations
 
             modelBuilder.Entity("EternaFrontToBackWithMvc.Models.PortfolioImage", b =>
                 {
+                    b.HasOne("EternaFrontToBackWithMvc.Models.OurService", "OurService")
+                        .WithMany("PortfolioImages")
+                        .HasForeignKey("OurServiceId");
+
+                    b.HasOne("EternaFrontToBackWithMvc.Models.PortfolioGroup", null)
+                        .WithMany("PortfolioImages")
+                        .HasForeignKey("PortfolioGroupId");
+
                     b.HasOne("EternaFrontToBackWithMvc.Models.Portfolio", "Portfolio")
                         .WithMany("PortfolioImages")
                         .HasForeignKey("PortfolioId")

@@ -27,6 +27,8 @@ namespace EternaFrontToBackWithMvc.Controllers
 
             };
             return View(aboutVM);
+
         }
+
     }
 }
