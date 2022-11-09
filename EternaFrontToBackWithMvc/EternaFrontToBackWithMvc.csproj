@@ -39,6 +39,38 @@
     <Compile Remove="Migrations\20221108130818_AddedConnectionBetweenPortfolioImageAndGroup.Designer.cs" />
     <Compile Remove="Migrations\20221108131107_AddedConnectionBetweenPortfolioImagesAndGroups.cs" />
     <Compile Remove="Migrations\20221108131107_AddedConnectionBetweenPortfolioImagesAndGroups.Designer.cs" />
+    <Compile Remove="Migrations\20221108174522_CreatedSocialMediaAccountTable.cs" />
+    <Compile Remove="Migrations\20221108174522_CreatedSocialMediaAccountTable.Designer.cs" />
+    <Compile Remove="Migrations\20221108175048_CreatedEmployeeTable.cs" />
+    <Compile Remove="Migrations\20221108175048_CreatedEmployeeTable.Designer.cs" />
+    <Compile Remove="Migrations\20221108175814_AddedRelationBetweenEmployeeAndSocialMediaAccounta.cs" />
+    <Compile Remove="Migrations\20221108175814_AddedRelationBetweenEmployeeAndSocialMediaAccounta.Designer.cs" />
+    <Compile Remove="Migrations\20221108180402_AddedRelationBetweenSocialMediaAccountAndEmployeeTables.cs" />
+    <Compile Remove="Migrations\20221108180402_AddedRelationBetweenSocialMediaAccountAndEmployeeTables.Designer.cs" />
+    <Compile Remove="Migrations\20221108180802_CreatedSocialMediaAccountAndEmployeeTables.cs" />
+    <Compile Remove="Migrations\20221108180802_CreatedSocialMediaAccountAndEmployeeTables.Designer.cs" />
+    <Compile Remove="Migrations\20221109063653_CreatedManyToManyRelationBetweenPricingAndProductTables.cs" />
+    <Compile Remove="Migrations\20221109063653_CreatedManyToManyRelationBetweenPricingAndProductTables.Designer.cs" />
+    <Compile Remove="Migrations\20221109083947_CreatedTagTable.cs" />
+    <Compile Remove="Migrations\20221109083947_CreatedTagTable.Designer.cs" />
+    <Compile Remove="Migrations\20221109090004_CreatedPublisherTableAndRemovedPublisherNameAndSurnamePropertiesFromBlogTable.cs" />
+    <Compile Remove="Migrations\20221109090004_CreatedPublisherTableAndRemovedPublisherNameAndSurnamePropertiesFromBlogTable.Designer.cs" />
+    <Compile Remove="Migrations\20221109130854_CreatedFullVersionArticleTable.cs" />
+    <Compile Remove="Migrations\20221109130854_CreatedFullVersionArticleTable.Designer.cs" />
+    <Compile Remove="Migrations\20221109141441_jfdjkf.cs" />
+    <Compile Remove="Migrations\20221109141441_jfdjkf.Designer.cs" />
+    <Compile Remove="Migrations\20221109141730_test.cs" />
+    <Compile Remove="Migrations\20221109141730_test.Designer.cs" />
+    <Compile Remove="Migrations\20221109141838_d.cs" />
+    <Compile Remove="Migrations\20221109141838_d.Designer.cs" />
+    <Compile Remove="Migrations\20221109142038_d.cs" />
+    <Compile Remove="Migrations\20221109142038_d.Designer.cs" />
+    <Compile Remove="Migrations\20221109142328_test.cs" />
+    <Compile Remove="Migrations\20221109142328_test.Designer.cs" />
+    <Compile Remove="Migrations\20221109164935_CreatedManyToManyRelationalDataForSocialMediaAccountAndAuthorTables.cs" />
+    <Compile Remove="Migrations\20221109164935_CreatedManyToManyRelationalDataForSocialMediaAccountAndAuthorTables.Designer.cs" />
+    <Compile Remove="Migrations\20221109183029_CreatedCommentTableAndAddedRelationBetweenommentAndBlogTable.cs" />
+    <Compile Remove="Migrations\20221109183029_CreatedCommentTableAndAddedRelationBetweenommentAndBlogTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

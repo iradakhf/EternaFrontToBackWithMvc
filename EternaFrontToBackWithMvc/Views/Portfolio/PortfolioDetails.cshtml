@@ -1,4 +1,4 @@
-﻿@model PortfolioDetailsVM
+﻿@model Portfolio
 @{
     ViewData["Title"] = "PortfolioDetails";
 }
@@ -26,7 +26,7 @@
                 <div class="col-lg-8">
                     <div class="portfolio-details-slider swiper">
                         <div class="swiper-wrapper align-items-center">
-                            @foreach (PortfolioImage item in Model.Portfolio.PortfolioImages)
+                            @foreach (PortfolioImage item in Model.PortfolioImages)
                             {
                                 <div class="swiper-slide">
                                     <img src="~/assets/img/portfolio/@item.Image" alt="">
@@ -44,7 +44,7 @@
                         <ul>
 
                             <li>
-                                <strong>Category</strong>: @foreach (OurService item in Model.Portfolio.OurServices)
+                                <strong>Category</strong>: @foreach (OurService item in Model.OurServices)
                                 {
                                     @($"{@item.Name};")
                                 }
@@ -52,18 +52,18 @@
 
                             </li>
 
-                            <li><strong>Client</strong>: @Model.Portfolio.Client.Name</li>
+                            <li><strong>Client</strong>: @Model.Client.Name</li>
 
 
-                            <li><strong>Project date</strong>: @Model.Portfolio.Date</li>
-                            <li><strong>Project URL</strong>: <a href="#">@Model.Portfolio.ProjectUrl</a></li>
+                            <li><strong>Project date</strong>: @Model.Date</li>
+                            <li><strong>Project URL</strong>: <a href="#">@Model.ProjectUrl</a></li>
 
                         </ul>
                     </div>
                     <div class="portfolio-description">
-                        <h2>@Model.Portfolio.Title</h2>
+                        <h2>@Model.Title</h2>
                         <p>
-                            @Model.Portfolio.Description
+                            @Model.Description
                         </p>
                     </div>
                 </div>

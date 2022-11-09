@@ -1,0 +1,335 @@
+﻿@model BlogSingleVM
+@{
+    ViewData["Title"] = "BlogSingle";
+    ViewBag.Count = 0;
+
+}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+
+            <ol>
+                <li><a asp-controller="Home" asp-action="index">Home</a></li>
+                <li><a asp-controller="Blog" asp-action="index">Blog</a></li>
+            </ol>
+            <h2>@Model.Blog.Title</h2>
+
+        </div>
+    </section><!-- End Breadcrumbs -->
+    <!-- ======= Blog Single Section ======= -->
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+
+                <div class="col-lg-8 entries">
+
+                    <article class="entry entry-single">
+
+                        <div class="entry-img">
+                            <img src="~/assets/img/blog/@Model.Blog.Image" alt="" class="img-fluid">
+                        </div>
+
+                        <h2 class="entry-title">
+                            <a asp-controller="Blog" asp-action="BlogSingle">@Model.Blog.Title</a>
+                        </h2>
+
+                        <div class="entry-meta">
+                            <ul>
+                                <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a asp-controller="Blog" asp-action="BlogSingle">@Model.Blog.Publisher.Name @Model.Blog.Publisher.Surname</a></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a asp-controller="Blog" asp-action="BlogSingle"><time datetime="2020-01-01">@Model.Blog.Date</time></a></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a asp-controller="Blog" asp-action="BlogSingle">12 Comments</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="entry-content">
+                            <p>
+                                @Model.Blog.Article
+                            </p>
+
+                            <p>
+                                Sit repellat hic cupiditate hic ut nemo. Quis nihil sunt non reiciendis. Sequi in accusamus harum vel aspernatur. Excepturi numquam nihil cumque odio. Et voluptate cupiditate.
+                            </p>
+
+                            <blockquote>
+                                <p>
+                                    Et vero doloremque tempore voluptatem ratione vel aut. Deleniti sunt animi aut. Aut eos aliquam doloribus minus autem quos.
+                                </p>
+                            </blockquote>
+
+                            <p>
+                                Sed quo laboriosam qui architecto. Occaecati repellendus omnis dicta inventore tempore provident voluptas mollitia aliquid. Id repellendus quia. Asperiores nihil magni dicta est suscipit perspiciatis. Voluptate ex rerum assumenda dolores nihil quaerat.
+                                Dolor porro tempora et quibusdam voluptas. Beatae aut at ad qui tempore corrupti velit quisquam rerum. Omnis dolorum exercitationem harum qui qui blanditiis neque.
+                                Iusto autem itaque. Repudiandae hic quae aspernatur ea neque qui. Architecto voluptatem magni. Vel magnam quod et tempora deleniti error rerum nihil tempora.
+                            </p>
+
+                            <h3>Et quae iure vel ut odit alias.</h3>
+                            <p>
+                                Officiis animi maxime nulla quo et harum eum quis a. Sit hic in qui quos fugit ut rerum atque. Optio provident dolores atque voluptatem rem excepturi molestiae qui. Voluptatem laborum omnis ullam quibusdam perspiciatis nulla nostrum. Voluptatum est libero eum nesciunt aliquid qui.
+                                Quia et suscipit non sequi. Maxime sed odit. Beatae nesciunt nesciunt accusamus quia aut ratione aspernatur dolor. Sint harum eveniet dicta exercitationem minima. Exercitationem omnis asperiores natus aperiam dolor consequatur id ex sed. Quibusdam rerum dolores sint consequatur quidem ea.
+                                Beatae minima sunt libero soluta sapiente in rem assumenda. Et qui odit voluptatem. Cum quibusdam voluptatem voluptatem accusamus mollitia aut atque aut.
+                            </p>
+                            <img src="~/assets/img/blog/@Model.Blog.ArticleImage" class="img-fluid" alt="">
+
+                            <h3>Ut repellat blanditiis est dolore sunt dolorum quae.</h3>
+                            <p>
+                                Rerum ea est assumenda pariatur quasi et quam. Facilis nam porro amet nostrum. In assumenda quia quae a id praesentium. Quos deleniti libero sed occaecati aut porro autem. Consectetur sed excepturi sint non placeat quia repellat incidunt labore. Autem facilis hic dolorum dolores vel.
+                                Consectetur quasi id et optio praesentium aut asperiores eaque aut. Explicabo omnis quibusdam esse. Ex libero illum iusto totam et ut aut blanditiis. Veritatis numquam ut illum ut a quam vitae.
+                            </p>
+                            <p>
+                                Alias quia non aliquid. Eos et ea velit. Voluptatem maxime enim omnis ipsa voluptas incidunt. Nulla sit eaque mollitia nisi asperiores est veniam.
+                            </p>
+
+                        </div>
+
+                        <div class="entry-footer">
+                            <i class="bi bi-folder"></i>
+                            <ul class="cats">
+                                <li><a href="#">Business</a></li>
+                            </ul>
+
+                            <i class="bi bi-tags"></i>
+                            <ul class="tags">
+                                @foreach (Tag item in Model.Tags)
+                                {
+                                    if (item.BlogTags.Exists(b => b.BlogId == Model.Blog.Id))
+                                    {
+                                        <li><a href="#">@(item.Name)</a></li>
+
+                                    }
+
+                                }
+
+                            </ul>
+                        </div>
+
+                    </article><!-- End blog entry -->
+                    @foreach (Author author in Model.Authors)
+                    {
+                        if (author.BlogAuthors.Exists(b => b.BlogId == Model.Blog.Id))
+                        {
+                            <div class="blog-author d-flex align-items-center">
+                                <img src="~/assets/img/blog/@author.Image" class="rounded-circle float-left" alt="">
+                                <div>
+                                    <h4>@author.Name @author.Surname</h4>
+                                    <div class="social-links">
+                                        @foreach (SocialMediaAccount item in Model.SocialMediaAccounts)
+                                        {
+                                            if (author.AuthorSocialMediaAccounts.Exists(sm => sm.SocialMediaAccountId == item.Id))
+                                            {
+
+                                                <a href="https://@item.Name/#"><i class="@item.Icon"></i></a>
+                                            }
+
+
+                                        }
+                                    </div>
+                                    <p>
+                                        @author.Comment
+                                    </p>
+                                </div>
+                            </div><!-- End blog author bio -->
+
+                        }
+
+                    }
+
+                <div class="blog-comments">
+
+                    <h4 class="comments-count">@Model.Blog.Comments.Count Comments</h4>
+                    @foreach (Comment item in Model.Comments)
+                    {
+                        if (item.BlogId == Model.Blog.Id)
+                        {
+
+                            if (item.IsReply)
+                            {
+
+                                
+
+                                    <div id="comment-reply-1" class="comment comment-reply">
+                                        <div class="d-flex">
+                                            <div class="comment-img"><img src="~/assets/img/blog/@item.Image" alt=""></div>
+                                            <div>
+                                                <h5><a href="">@item.ComentorName @item.ComentorSurname</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                                                <time datetime="@item.Date">@item.Date</time>
+                                                <p>
+                                                    @item.Text
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div id="comment-reply-2" class="comment comment-reply">
+                                            <div class="d-flex">
+                                                <div class="comment-img"><img src="~/assets/img/blog/comments-4.jpg" alt=""></div>
+                                                <div>
+                                                    <h5><a href="">Sianna Ramsay</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                                                    <time datetime="2020-01-01">01 Jan, 2020</time>
+                                                    <p>
+                                                        Et dignissimos impedit nulla et quo distinctio ex nemo. Omnis quia dolores cupiditate et. Ut unde qui eligendi sapiente omnis ullam. Placeat porro est commodi est officiis voluptas repellat quisquam possimus. Perferendis id consectetur necessitatibus.
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                        </div><!-- End comment reply #2-->
+
+                                    </div><!-- End comment reply #1-->
+
+                              
+                            }
+                            else
+                            {
+                                <div id="comment-2" class="comment">
+                                    <div class="d-flex">
+                                        <div class="comment-img"><img src="~/assets/img/blog/@item.Image" alt=""></div>
+                                        <div>
+                                            <h5><a href="">Aron Alvarado</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                                            <time datetime="@item.Date">@item.Date</time>
+                                            <p>
+                                                @item.Text
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div><!-- End comment #2-->
+
+                            }
+
+                        }
+                    }
+
+
+
+                    <div class="reply-form">
+                        <h4>Leave a Reply</h4>
+                        <p>Your email address will not be published. Required fields are marked * </p>
+                        <form action="">
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <input name="name" type="text" class="form-control" placeholder="Your Name*">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <input name="email" type="text" class="form-control" placeholder="Your Email*">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col form-group">
+                                    <input name="website" type="text" class="form-control" placeholder="Your Website">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col form-group">
+                                    <textarea name="comment" class="form-control" placeholder="Your Comment*"></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Post Comment</button>
+
+                        </form>
+
+                    </div>
+
+                </div><!-- End blog comments -->
+
+                </div><!-- End blog entries list -->
+
+                <div class="col-lg-4">
+
+                    <div class="sidebar">
+
+                        <h3 class="sidebar-title">Search</h3>
+                        <div class="sidebar-item search-form">
+                            <form action="">
+                                <input type="text">
+                                <button type="submit"><i class="bi bi-search"></i></button>
+                            </form>
+                        </div><!-- End sidebar search formn-->
+
+                        <h3 class="sidebar-title">Categories</h3>
+                        <div class="sidebar-item categories">
+                            <ul>
+                                @foreach (Category category in Model.Categories)
+                                {
+                                    if (category.BlogCategories.Exists(b => b.BlogId == Model.Blog.Id))
+                                    {
+                                        <li>
+                                            <a href="#">
+                                                @category.Name <span>
+                                                    (@foreach (Blog item in Model.Blogs)
+                                                    {
+                                                        if (category.BlogCategories.Exists(b => b.BlogId == item.Id))
+                                                        {
+
+                                                            ViewBag.Count += 1;
+                                                        }
+
+                                                    }@ViewBag.Count)
+                                                </span>
+                                            </a>
+                                        </li>
+
+                                    }
+                                    ViewBag.Count = 0;
+
+                                }
+
+                            </ul>
+                        </div><!-- End sidebar categories-->
+
+                        <h3 class="sidebar-title">Recent Posts</h3>
+                        <div class="sidebar-item recent-posts">
+                            @foreach (Category item in Model.Categories)
+                            {
+                                if (item.BlogCategories.Exists(b => b.BlogId == Model.Blog.Id))
+                                {
+                                    foreach (Post post in Model.Posts)
+                                    {
+
+                                        if (item.CategoryPosts.Exists(p => p.PostId == post.Id))
+                                        {
+
+                                            <div class="post-item clearfix">
+                                                <img src="~/assets/img/blog/@post.Image" alt="">
+                                                <h4><a href="blog-single.html">@post.Title</a></h4>
+                                                <time datetime="2020-01-01">@post.Date</time>
+                                            </div>
+                                        }
+
+
+                                    }
+
+
+
+                                }
+
+                            }
+
+                        </div><!-- End sidebar recent posts-->
+
+                        <h3 class="sidebar-title">Tags</h3>
+                        <div class="sidebar-item tags">
+                            <ul>
+                                @foreach (Tag tag in Model.Tags)
+                                {
+                                    if (tag.BlogTags.Exists(b => b.BlogId == Model.Blog.Id))
+                                    {
+                                        <li><a href="#">@tag.Name</a></li>
+
+                                    }
+
+                                }
+
+                            </ul>
+                        </div><!-- End sidebar tags-->
+
+                    </div><!-- End sidebar -->
+
+                </div><!-- End blog sidebar -->
+
+            </div>
+
+        </div>
+    </section><!-- End Blog Single Section -->
+
+</main><!-- End #main -->

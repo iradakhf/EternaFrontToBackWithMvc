@@ -1,4 +1,4 @@
-﻿
+﻿@model PricingVM
 @{
     ViewData["Title"] = "Index";
 }
@@ -10,7 +10,7 @@
         <div class="container">
 
             <ol>
-                <li><a href="index.html">Home</a></li>
+                <li><a asp-controller="Home">Home</a></li>
                 <li>Pricing</li>
             </ol>
             <h2>Pricing</h2>
@@ -22,48 +22,35 @@
         <div class="container">
 
             <div class="row no-gutters">
+                @foreach (Pricing item in Model.Pricings)
+                {
+                    <div class="col-lg-4 box @(item.IsFeatured ? "featured" : "")">
+                        <h3>@item.Name</h3>
+                        <h4>$@item.Price<span>per @item.Duration</span></h4>
+                        <ul>
+                            @foreach (Product product in Model.Products)
+                            {
 
-                <div class="col-lg-4 box">
-                    <h3>Free</h3>
-                    <h4>$0<span>per month</span></h4>
-                    <ul>
-                        <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-                        <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-                        <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-                        <li class="na"><i class="bx bx-x"></i> <span>Pharetra massa massa ultricies</span></li>
-                        <li class="na"><i class="bx bx-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-                    </ul>
-                    <a href="#" class="buy-btn">Buy Now</a>
-                </div>
+                                @if (item.PricingProducts.Exists(pp => pp.ProductId == product.Id))
+                                {
+                                    <li><i class="bx bx-check"></i> @product.Name</li>
 
-                <div class="col-lg-4 box featured">
-                    <h3>Business</h3>
-                    <h4>$29<span>per month</span></h4>
-                    <ul>
-                        <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-                        <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-                        <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-                        <li><i class="bx bx-check"></i> Pharetra massa massa ultricies</li>
-                        <li><i class="bx bx-check"></i> Massa ultricies mi quis hendrerit</li>
-                    </ul>
-                    <a href="#" class="buy-btn">Buy Now</a>
-                </div>
+                                }
+                                else
+                                {
+                                    <li class="na"><i class="bx bx-x"></i> <span>@product.Name</span></li>
 
-                <div class="col-lg-4 box">
-                    <h3>Developer</h3>
-                    <h4>$49<span>per month</span></h4>
-                    <ul>
-                        <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-                        <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-                        <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-                        <li><i class="bx bx-check"></i> Pharetra massa massa ultricies</li>
-                        <li><i class="bx bx-check"></i> Massa ultricies mi quis hendrerit</li>
-                    </ul>
-                    <a href="#" class="buy-btn">Buy Now</a>
-                </div>
+                                }
+                            }
+
+
+                        </ul>
+                        <a href="#" class="buy-btn">Buy Now</a>
+                    </div>
+
+                }
 
             </div>
-
         </div>
     </section><!-- End Pricing Section -->
 

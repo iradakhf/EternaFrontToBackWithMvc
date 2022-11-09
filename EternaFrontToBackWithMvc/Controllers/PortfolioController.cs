@@ -35,13 +35,12 @@ namespace EternaFrontToBackWithMvc.Controllers
         {
             ViewBag.Active = 9;
 
-            PortfolioDetailsVM portfolioDetailsVM = new PortfolioDetailsVM
-            {
-                Portfolio = _context.Portfolios.Include(pi => pi.PortfolioImages).Include(os=>os.OurServices).Include(c=>c.Client).FirstOrDefault(p => p.Id == id),
+
+            Portfolio portfolio = _context.Portfolios.Include(pi => pi.PortfolioImages).Include(os => os.OurServices).Include(c => c.Client).FirstOrDefault(p => p.Id == id);
 
 
-        };
-            return View(portfolioDetailsVM);
+           
+            return View(portfolio);
 
 
         }

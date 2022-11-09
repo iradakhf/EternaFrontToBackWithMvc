@@ -52,6 +52,187 @@ namespace EternaFrontToBackWithMvc.Migrations
                     b.ToTable("Abouts");
                 });
 
+            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.Author", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Authors");
+                });
+
+            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.AuthorSocialMediaAccount", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AuthorId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SocialMediaAccountId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AuthorId");
+
+                    b.HasIndex("SocialMediaAccountId");
+
+                    b.ToTable("AuthorSocialMediaAccounts");
+                });
+
+            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.Blog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Article")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ArticleImage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PublisherId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PublisherId");
+
+                    b.ToTable("Blogs");
+                });
+
+            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.BlogAuthor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AuthorId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("BlogId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AuthorId");
+
+                    b.HasIndex("BlogId");
+
+                    b.ToTable("BlogAuthors");
+                });
+
+            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.BlogCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BlogId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BlogId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("BlogCategories");
+                });
+
+            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.BlogTag", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BlogId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TagId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BlogId");
+
+                    b.HasIndex("TagId");
+
+                    b.ToTable("BlogTags");
+                });
+
+            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.CategoryPost", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PostId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("PostId");
+
+                    b.ToTable("CategoryPosts");
+                });
+
             modelBuilder.Entity("EternaFrontToBackWithMvc.Models.Client", b =>
                 {
                     b.Property<int>("Id")
@@ -68,6 +249,41 @@ namespace EternaFrontToBackWithMvc.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Clients");
+                });
+
+            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.Comment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BlogId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ComentorName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ComentorSurname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsReply")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BlogId");
+
+                    b.ToTable("Comments");
                 });
 
             modelBuilder.Entity("EternaFrontToBackWithMvc.Models.Contact", b =>
@@ -110,6 +326,55 @@ namespace EternaFrontToBackWithMvc.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Counts");
+                });
+
+            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.Employee", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Position")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Employees");
+                });
+
+            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.EmployeeSocialMediaAccount", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SocialMediaAccountId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.HasIndex("SocialMediaAccountId");
+
+                    b.ToTable("EmployeeSocialMediaAccounts");
                 });
 
             modelBuilder.Entity("EternaFrontToBackWithMvc.Models.Feature", b =>
@@ -264,6 +529,106 @@ namespace EternaFrontToBackWithMvc.Migrations
                     b.ToTable("PortfolioImages");
                 });
 
+            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.Post", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Posts");
+                });
+
+            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.Pricing", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Duration")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsFeatured")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Pricings");
+                });
+
+            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.PricingProducts", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("PricingId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PricingId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("PricingProducts");
+                });
+
+            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.Product", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.Publisher", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Publishers");
+                });
+
             modelBuilder.Entity("EternaFrontToBackWithMvc.Models.Services", b =>
                 {
                     b.Property<int>("Id")
@@ -303,6 +668,39 @@ namespace EternaFrontToBackWithMvc.Migrations
                     b.ToTable("Skills");
                 });
 
+            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.SocialMediaAccount", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Icon")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SocialMediaAccounts");
+                });
+
+            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.Tag", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tags");
+                });
+
             modelBuilder.Entity("EternaFrontToBackWithMvc.Models.Testimonial", b =>
                 {
                     b.Property<int>("Id")
@@ -328,6 +726,114 @@ namespace EternaFrontToBackWithMvc.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Testimonials");
+                });
+
+            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.AuthorSocialMediaAccount", b =>
+                {
+                    b.HasOne("EternaFrontToBackWithMvc.Models.Author", "Author")
+                        .WithMany("AuthorSocialMediaAccounts")
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EternaFrontToBackWithMvc.Models.SocialMediaAccount", "SocialMediaAccount")
+                        .WithMany()
+                        .HasForeignKey("SocialMediaAccountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.Blog", b =>
+                {
+                    b.HasOne("EternaFrontToBackWithMvc.Models.Publisher", "Publisher")
+                        .WithMany("Blogs")
+                        .HasForeignKey("PublisherId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.BlogAuthor", b =>
+                {
+                    b.HasOne("EternaFrontToBackWithMvc.Models.Author", "Author")
+                        .WithMany("BlogAuthors")
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EternaFrontToBackWithMvc.Models.Blog", "Blog")
+                        .WithMany()
+                        .HasForeignKey("BlogId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.BlogCategory", b =>
+                {
+                    b.HasOne("EternaFrontToBackWithMvc.Models.Blog", "Blog")
+                        .WithMany("BlogCategories")
+                        .HasForeignKey("BlogId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EternaFrontToBackWithMvc.Models.Category", "Category")
+                        .WithMany("BlogCategories")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.BlogTag", b =>
+                {
+                    b.HasOne("EternaFrontToBackWithMvc.Models.Blog", "Blog")
+                        .WithMany("BlogTags")
+                        .HasForeignKey("BlogId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EternaFrontToBackWithMvc.Models.Tag", "Tag")
+                        .WithMany("BlogTags")
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.CategoryPost", b =>
+                {
+                    b.HasOne("EternaFrontToBackWithMvc.Models.Category", "Category")
+                        .WithMany("CategoryPosts")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EternaFrontToBackWithMvc.Models.Post", "Post")
+                        .WithMany("CategoryPosts")
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.Comment", b =>
+                {
+                    b.HasOne("EternaFrontToBackWithMvc.Models.Blog", "Blog")
+                        .WithMany("Comments")
+                        .HasForeignKey("BlogId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.EmployeeSocialMediaAccount", b =>
+                {
+                    b.HasOne("EternaFrontToBackWithMvc.Models.Employee", "Employee")
+                        .WithMany("EmployeeSocialMediaAccounts")
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EternaFrontToBackWithMvc.Models.SocialMediaAccount", "SocialMediaAccount")
+                        .WithMany("EmployeeSocialMediaAccounts")
+                        .HasForeignKey("SocialMediaAccountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("EternaFrontToBackWithMvc.Models.OurService", b =>
@@ -357,6 +863,21 @@ namespace EternaFrontToBackWithMvc.Migrations
                     b.HasOne("EternaFrontToBackWithMvc.Models.Portfolio", "Portfolio")
                         .WithMany("PortfolioImages")
                         .HasForeignKey("PortfolioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EternaFrontToBackWithMvc.Models.PricingProducts", b =>
+                {
+                    b.HasOne("EternaFrontToBackWithMvc.Models.Pricing", "Pricing")
+                        .WithMany("PricingProducts")
+                        .HasForeignKey("PricingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EternaFrontToBackWithMvc.Models.Product", "Product")
+                        .WithMany("PricingProducts")
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

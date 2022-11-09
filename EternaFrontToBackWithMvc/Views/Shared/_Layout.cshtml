@@ -6,7 +6,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title>@(ViewBag.Active==1? "Home": ViewBag.Active == 2 ? "About" : ViewBag.Active == 3 ? "Blog" : ViewBag.Active == 4 ? "Contact"
-    : ViewBag.Active == 5 ? "Portfolio" : ViewBag.Active == 6? "Pricing" : ViewBag.Active == 7 ? "Services" : ViewBag.Active == 8 ? "Team" : ViewBag.Active == 9 ? "PortfolioDetails" : ""
+    : ViewBag.Active == 5 ? "Portfolio" : ViewBag.Active == 6? "Pricing" : ViewBag.Active == 7 ? "Services" : ViewBag.Active == 8 ? "Team" : ViewBag.Active == 9 ? "PortfolioDetails" : ViewBag.Active == 10 ? "BlogSingle" : ""
     ) - Eterna Bootstrap Template</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
@@ -67,13 +67,13 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class=@(ViewBag.Active==1? "active" : "") asp-controller="home">Home</a></li>
-                    <li><a class=@(ViewBag.Active==2? "active" : "") asp-controller="about">About</a></li>
-                    <li><a class=@(ViewBag.Active==7? "active" : "") asp-controller="services">Services</a></li>
-                    <li><a class=@(ViewBag.Active==5? "active": "") asp-controller="portfolio">Portfolio</a></li>
-                    <li><a class=@(ViewBag.Active==8? "active": "") asp-controller="team">Team</a></li>
-                    <li><a class=@(ViewBag.Active==6? "active": "") asp-controller="pricing">Pricing</a></li>
-                    <li><a class=@(ViewBag.Active==3? "active": "") asp-controller="blog">Blog</a></li>
+                    <li><a class=@(ViewBag.Active==1? "active" : "") asp-controller="home" asp-action="index">Home</a></li>
+                    <li><a class=@(ViewBag.Active==2? "active" : "") asp-controller="about" asp-action="index">About</a></li>
+                    <li><a class=@(ViewBag.Active==7? "active" : "") asp-controller="services" asp-action="index">Services</a></li>
+                    <li><a class=@(ViewBag.Active==5? "active": "") asp-controller="portfolio" asp-action="index">Portfolio</a></li>
+                    <li><a class=@(ViewBag.Active==8? "active": "") asp-controller="team" asp-action="index">Team</a></li>
+                    <li><a class=@(ViewBag.Active==6? "active": "") asp-controller="pricing" asp-action="index">Pricing</a></li>
+                    <li><a class=@(ViewBag.Active==3? "active": "") asp-controller="blog" asp-action="index">Blog</a></li>
                     <li class="dropdown">
                         <a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
@@ -93,7 +93,7 @@
                             <li><a href="#">Drop Down 4</a></li>
                         </ul>
                     </li>
-                    <li><a class=@(ViewBag.Active==4? "active": "") asp-controller="contact">Contact</a></li>
+                    <li><a class=@(ViewBag.Active==4? "active": "") asp-controller="contact" asp-action="index">Contact</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
