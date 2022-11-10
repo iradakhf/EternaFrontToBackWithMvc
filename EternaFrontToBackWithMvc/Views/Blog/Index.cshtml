@@ -58,7 +58,7 @@
 
                                     <div class="entry-content">
                                         <p>
-                                            @blog.Article
+                                            @blog.Article.Substring(0,250)
                                         </p>
                                         <div class="read-more">
                                             <a asp-controller="Blog" asp-action="BlogSingle">Read More</a>
